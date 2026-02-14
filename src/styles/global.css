@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "GeistPixel-Grid";
+  src: url("../assets/fonts/GeistPixel-Grid.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg-dark: #0b0d0e;
+  --bg-light: #fdfdfc;
+  --fg-dark: #8c8c8c;
+  --fg-light: #63635e;
+  --primary-dark: white;
+  --primary-light: black;
+
+  --primary: light-dark(var(--primary-light), var(--primary-dark));
+  --background: light-dark(var(--bg-light), var(--bg-dark));
+  --foreground: light-dark(var(--fg-light), var(--fg-dark));
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --default-font-family: "GeistPixel-Grid", monospace;
+}
+
+::selection {
+  @apply bg-primary text-background;
+}
+html {
+  @apply scheme-light-dark bg-background text-foreground;
+}

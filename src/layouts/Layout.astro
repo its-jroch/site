@@ -1,0 +1,114 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? `Jroch - ${title}` : "Jroch"}</title>
+    <meta property="og:title" content={title ? `Jroch - ${title}` : "Jroch"} />
+    <meta
+      name="description"
+      content={description || "Jroch's official website"}
+    />
+    <meta
+      property="og:description"
+      content={description || "Jroch's official website"}
+    />
+    <meta property="og:site_name" content="Jroch" />
+    <meta
+      property="twitter:title"
+      content={title ? `Jroch - ${title}` : "Jroch"}
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@thisisjroch" />
+    <meta
+      name="twitter:description"
+      content={description || "Jroch's official website"}
+    />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@id": "https://jroch.xyz/#website",
+            "@type": "WebSite",
+            "inLanguage": "en",
+            "name": "jroch-website",
+            "url": "https://jroch.xyz/"
+          },
+          {
+            "@id": "https://jroch.xyz/#webpage",
+            "@type": "WebPage",
+            "description": "Jroch's official website",
+            "name": "Jroch",
+            "url": "https://jroch.xyz/",
+            "potentialAction": [
+              { "@type": "ReadAction", "target": ["https://jroch.xyz/"] }
+            ]
+          },
+          {
+            "@id": "https://jroch.xyz",
+            "@type": "WebSite",
+            "description": "Jroch's official website",
+            "inLanguage": "en-US",
+            "name": "Jroch - Website",
+            "url": "https://jroch.xyz",
+            "publisher": {
+              "@type": "Person",
+              "@id": "jroch.xyz",
+              "url": "https://jroch.xyz",
+              "name": "Jroch",
+              "description": "a developer and designer.",
+              "alternateName": ["JROCH", "jroch"],
+              "sameAs": [
+                "https://github.com/its-jroch",
+                "https://x.com/thisisjroch"
+              ]
+            }
+          },
+          {
+            "@id": "https://jroch.xyz/#/",
+            "@type": "WebPage",
+            "description": "Jroch's official website",
+            "inLanguage": "en-US",
+            "name": "Home",
+            "url": "/",
+            "author": {
+              "@type": "Person",
+              "@id": "jroch.xyz",
+              "url": "https://jroch.xyz",
+              "name": "Jroch",
+              "description": "a developer and designer.",
+              "alternateName": ["JROCH", "jroch"],
+              "sameAs": [
+                "https://github.com/its-jroch",
+                "https://x.com/thisisjroch"
+              ]
+            },
+            "isPartOf": { "@id": "https://jroch.xyz/#website" },
+            "keywords": ["developer website"],
+            "potentialAction": {
+              "@type": "ReadAction",
+              "target": ["https://jroch.xyz/", "/"]
+            }
+          }
+        ]
+      }
+    </script>
+  </body>
+</html>
