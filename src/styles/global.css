@@ -27,6 +27,10 @@
   --default-font-family: "GeistPixel-Grid", monospace;
 }
 
+@utility social-icon {
+  @apply hover:text-primary size-7 md:size-8 lg:size-8.5;
+}
+
 ::selection {
   @apply bg-primary text-background;
 }

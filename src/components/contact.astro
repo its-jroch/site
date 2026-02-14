@@ -1,0 +1,39 @@
+---
+import Github from "./social/github.astro";
+import Twitter from "./social/twitter.astro";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: AstroComponentFactory;
+}
+
+const allLinks: SocialLink[] = [
+  {
+    name: "GitHub",
+    url: "https://github.com/its-jroch",
+    icon: Github,
+  },
+  {
+    name: "X/Twitter",
+    url: "https://x.com/thisisjroch",
+    icon: Twitter,
+  },
+];
+---
+
+<div class="mx-auto flex gap-4 lg:gap-5 items-center">
+  {
+    allLinks.map((link) => (
+      <a
+        href={link.url}
+        target="_blank"
+        aria-label={link.name}
+        title={link.name}
+      >
+        <link.icon class="social-icon" />
+      </a>
+    ))
+  }
+</div>

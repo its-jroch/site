@@ -1,33 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import GitHub from "../components/github.astro";
+import Title from "../components/title.astro";
+import SubTitle from "../components/sub-title.astro";
+import Contact from "../components/contact.astro";
 ---
 
 <Layout title="Home">
   <div
-    class="grid w-full min-h-dvh justify-center content-center gap-4 *:text-center *:select-none"
+    class="grid w-full min-h-dvh justify-center content-center gap-4 lg:gap-5 xl:gap-6 *:text-center *:select-none"
   >
-    <!-- title -->
-    <h1
-      class="text-primary font-medium text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl tracking-wide uppercase"
-    >
-      jroch
-    </h1>
-
-    <!-- description -->
-    <h5 class="text-lg lg:text-2xl xl:text-3xl lowercase">official website</h5>
-
-    <!-- socials -->
-    <a
-      class="mx-auto"
-      aria-label="GitHub"
-      target="_blank"
-      href="https://github.com/its-jroch"
-      title="GitHub"
-    >
-      <GitHub
-        class="hover:text-primary transition-colors size-6 md:size-7 lg:size-8"
-      />
-    </a>
+    <Title />
+    <SubTitle />
+    <Contact />
   </div>
 </Layout>
